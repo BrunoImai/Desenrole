@@ -22,6 +22,8 @@ public class FormatarExcecao {
 
         return new ResponseEntity<Object>(retorno, headers, HttpStatus.BAD_REQUEST);
     }
+
+
 }
 
 

@@ -1,11 +1,7 @@
 package br.pucbr.exemplo.usuario.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "USUARIO")
@@ -15,12 +11,15 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @NotNull(message = "ERR: 001 - O NOME NÃO PODE SER NULO")
     @Column(name = "NOME", nullable = false)
     private String nome;
 
+    @NotNull(message = "ERR: 001 - O LOGIN NÃO PODE SER NULO")
     @Column(name = "LOGIN", nullable = false, unique = true)
     private String login;
 
+    @NotNull(message = "ERR: 001 - A SENHA NÃO PODE SER NULA")
     @Column(name = "SENHA", nullable = false)
     private String senha;
 

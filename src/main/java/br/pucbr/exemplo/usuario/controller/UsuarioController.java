@@ -37,17 +37,15 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> buscarPorId(@PathVariable("id") Integer id) {
-        try {
+    public ResponseEntity<Usuario> buscarPorId(@PathVariable("id") Integer id) throws ExceptionModel {
+
             Usuario usuario = usuarioService.buscarPorId(id);
             return new ResponseEntity<>(usuario, HttpStatus.OK);
-        } catch (NoSuchElementException ex) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
+
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable("id") Integer id) {
+    public void excluir(@PathVariable("id") Integer id) throws ExceptionModel {
         usuarioService.excluir(id);
     }
 
